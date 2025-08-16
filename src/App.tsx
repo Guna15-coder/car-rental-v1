@@ -1,5 +1,4 @@
 import Hero from './components/build/Hero'
-import Navbar from './components/build/Navbar'
 
 const App = () => {
   return (
