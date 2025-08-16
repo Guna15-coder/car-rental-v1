@@ -13,23 +13,18 @@ const Hero = () => {
 
       {/* Background for Desktop (Video) */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 hidden sm:block overflow-hidden">
-        <iframe
-          className="w-full h-full object-cover scale-110"
-          src="https://www.youtube.com/embed/E7pCceDrKmg?autoplay=1&mute=1&loop=1&playlist=E7pCceDrKmg&controls=0&modestbranding=1&showinfo=0&disablekb=1"
-          title="Car Video Background"
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-        ></iframe>
+        <img src="https://images.carexpert.com.au/resize/1920/-/app/uploads/2020/04/porsche-taycan.jpeg" className="w-full h-full object-cover" alt="" />
       </div>
 
       {/* Background for Mobile (Image Fallback) */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 sm:hidden">
         <img
           className="w-full h-full object-cover scale-110"
-          src="https://www.huntermoss.com/images/best-cars-for-road-trips/f-img.webp"
+          src="https://images.carexpert.com.au/resize/1920/-/app/uploads/2020/04/porsche-taycan.jpeg"
           alt="Car Background"
         />
       </div>
+      <div className="w-full h-full absolute -z-5"></div>
 
       {/* Content */}
       <div className="flex flex-col mx-4 md:mx-10 mb-10 mt-20 sm:mt-32">
