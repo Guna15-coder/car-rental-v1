@@ -1,9 +1,10 @@
-import { Button } from "@/components/ui/button"
+import Hero from './components/build/Hero'
+import Navbar from './components/build/Navbar'
 
-function App() {
+const App = () => {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
+    <div className='p-2'>
+      <Hero />
     </div>
   )
 }
