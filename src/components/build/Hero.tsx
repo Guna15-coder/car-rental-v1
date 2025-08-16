@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Navbar from "./Navbar";
 
 const Hero = () => {
+  const [selected, setSelected] = useState("without");
+
   return (
     <div className="relative w-full min-h-screen flex flex-col justify-between rounded-md overflow-hidden">
       {/* Navbar */}
@@ -8,15 +11,17 @@ const Hero = () => {
         <Navbar />
       </div>
 
-      {/* Background Image with dull effect */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-        <img
-          className="w-full h-full object-cover"
-          src="https://gadgetlite.com/wp-content/uploads/2024/06/Tips-to-Protect-Your-Car-This-Summer-800x400.jpg.webp"
-          alt="Car Background"
-        />
-      </div>
+      {/* Background Video */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+  <iframe
+    className="w-full h-full object-cover scale-111"
+    src="https://www.youtube.com/embed/E7pCceDrKmg?autoplay=1&mute=1&loop=1&playlist=E7pCceDrKmg&controls=0&modestbranding=1&showinfo=0&disablekb=1"
+    title="Car Video Background"
+    frameBorder="0"
+    allow="autoplay; fullscreen"
+  ></iframe>
+</div>
+
 
       {/* Content */}
       <div className="flex flex-col mx-4 md:mx-10 mb-10 mt-20 sm:mt-32">
@@ -74,15 +79,36 @@ const Hero = () => {
           <div className="mt-4 flex flex-col md:flex-row md:justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
               <p className="font-medium">Search Filter:</p>
-              <p className="text-white bg-black rounded-full px-3 py-1 text-sm cursor-pointer">
+
+              {/* Without Driver */}
+              <p
+                onClick={() => setSelected("without")}
+                className={`rounded-full px-3 py-1 text-sm cursor-pointer transition 
+                  ${
+                    selected === "without"
+                      ? "bg-black text-white"
+                      : "bg-transparent border border-gray-300 text-black"
+                  }`}
+              >
                 Without Driver
               </p>
-              <p className="text-black bg-gray-200 rounded-full px-3 py-1 text-sm cursor-pointer">
+
+              {/* With Driver */}
+              <p
+                onClick={() => setSelected("with")}
+                className={`rounded-full px-3 py-1 text-sm cursor-pointer transition 
+                  ${
+                    selected === "with"
+                      ? "bg-black text-white"
+                      : "bg-transparent border border-gray-300 text-black"
+                  }`}
+              >
                 With Driver
               </p>
             </div>
+
             <div>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg w-full md:w-auto">
+              <button className="bg-black hover:bg-gray-800 cursor-pointer transition text-white px-5 py-2 rounded-lg w-full md:w-auto">
                 Search
               </button>
             </div>
