@@ -62,10 +62,10 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex gap-4">
-            <Button className="bg-transparent border border-black text-black hover:bg-black hover:text-white transition-all rounded-full px-5">
+            <Button className="bg-transparent text-white hover:bg-transparent hover:text-white hover:border hover:border-white cursor-pointer transition-all px-5">
               Log in
             </Button>
-            <Button className="bg-black text-white hover:bg-gray-800 transition rounded-full px-5">
+            <Button className="bg-white text-black hover:bg-gray-800 transition px-5">
               Sign up
             </Button>
           </div>
@@ -116,10 +116,10 @@ const Navbar = () => {
             ))}
 
             <div className="flex flex-col gap-3 mt-4">
-              <Button className="px-4 py-2 text-black bg-transparent border border-black rounded-full hover:bg-black hover:text-white transition">
+              <Button className="bg-transparent text-white border border-white">
                 Log in
               </Button>
-              <Button className="bg-black text-white rounded-full hover:bg-gray-800">
+              <Button className="bg-white">
                 Sign up
               </Button>
             </div>
