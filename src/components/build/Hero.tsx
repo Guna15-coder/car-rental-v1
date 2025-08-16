@@ -11,17 +11,25 @@ const Hero = () => {
         <Navbar />
       </div>
 
-      {/* Background Video */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
-  <iframe
-    className="w-full h-full object-cover scale-111"
-    src="https://www.youtube.com/embed/E7pCceDrKmg?autoplay=1&mute=1&loop=1&playlist=E7pCceDrKmg&controls=0&modestbranding=1&showinfo=0&disablekb=1"
-    title="Car Video Background"
-    frameBorder="0"
-    allow="autoplay; fullscreen"
-  ></iframe>
-</div>
+      {/* Background for Desktop (Video) */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 hidden sm:block overflow-hidden">
+        <iframe
+          className="w-full h-full object-cover scale-110"
+          src="https://www.youtube.com/embed/E7pCceDrKmg?autoplay=1&mute=1&loop=1&playlist=E7pCceDrKmg&controls=0&modestbranding=1&showinfo=0&disablekb=1"
+          title="Car Video Background"
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+        ></iframe>
+      </div>
 
+      {/* Background for Mobile (Image Fallback) */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 sm:hidden">
+        <img
+          className="w-full h-full object-cover scale-110"
+          src="https://www.huntermoss.com/images/best-cars-for-road-trips/f-img.webp"
+          alt="Car Background"
+        />
+      </div>
 
       {/* Content */}
       <div className="flex flex-col mx-4 md:mx-10 mb-10 mt-20 sm:mt-32">
@@ -83,12 +91,11 @@ const Hero = () => {
               {/* Without Driver */}
               <p
                 onClick={() => setSelected("without")}
-                className={`rounded-full px-3 py-1 text-sm cursor-pointer transition 
-                  ${
-                    selected === "without"
-                      ? "bg-black text-white"
-                      : "bg-transparent border border-gray-300 text-black"
-                  }`}
+                className={`rounded-full px-3 py-1 text-sm cursor-pointer transition ${
+                  selected === "without"
+                    ? "bg-black text-white"
+                    : "bg-transparent border border-gray-300 text-black"
+                }`}
               >
                 Without Driver
               </p>
@@ -96,12 +103,11 @@ const Hero = () => {
               {/* With Driver */}
               <p
                 onClick={() => setSelected("with")}
-                className={`rounded-full px-3 py-1 text-sm cursor-pointer transition 
-                  ${
-                    selected === "with"
-                      ? "bg-black text-white"
-                      : "bg-transparent border border-gray-300 text-black"
-                  }`}
+                className={`rounded-full px-3 py-1 text-sm cursor-pointer transition ${
+                  selected === "with"
+                    ? "bg-black text-white"
+                    : "bg-transparent border border-gray-300 text-black"
+                }`}
               >
                 With Driver
               </p>
