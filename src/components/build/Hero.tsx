@@ -58,7 +58,7 @@ const Hero = () => {
   const distinctCities = [...new Set(locations.map((loc) => loc.city))];
 
   return (
-    <div className="relative w-full h-screen flex flex-col justify-between rounded-md overflow-hidden">
+    <div className="relative w-full h-screen flex flex-col justify-end rounded-md overflow-hidden">
       <Navbar />
 
       {/* Background */}
@@ -78,7 +78,7 @@ const Hero = () => {
         </div>
 
         {/* Search Box at bottom like old design */}
-        <div className="flex justify-end flex-col h-auto bg-white rounded-lg p-4 md:p-6 shadow-md">
+        <div className="flex flex-col justify-end h-auto bg-white rounded-lg p-4 md:p-6 shadow-md">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {/* Departure Dropdown */}
             <div>
