@@ -63,17 +63,21 @@ const CarData = () => {
   return (
     <div id="vehicle" className="mt-14 px-4">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-3xl font-bold">Top picks vehicle this month</h1>
-          <p className="text-gray-500 text-sm mt-2">
-            Experience the epitome of amazing journey with our top picks
-          </p>
-        </div>
-        <button className="flex items-center gap-1 font-semibold text-blue-600 hover:underline">
-          View All <FontAwesomeIcon icon={faArrowRight} />
-        </button>
-      </div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-3">
+  <div>
+    <h1 className="text-xl sm:text-3xl font-bold">
+      Top picks vehicle this month
+    </h1>
+    <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">
+      Experience the epitome of amazing journey with our top picks
+    </p>
+  </div>
+
+  <button className="flex items-center gap-1 text-sm sm:text-base font-semibold text-blue-600 hover:underline self-start sm:self-auto">
+    View All <FontAwesomeIcon icon={faArrowRight} />
+  </button>
+</div>
+
 
       {/* Car Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
