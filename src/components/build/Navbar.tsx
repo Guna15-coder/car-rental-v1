@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,14 +37,14 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-6 text-sm font-medium">
               {links.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.path}
+                  to={link.path}
                   className="relative group cursor-pointer text-gray-900 hover:text-gray-700 transition-colors"
                 >
                   {link.name}
                   <span className="absolute left-0 -bottom-1 h-[2px] bg-gray-900 transition-all duration-300 w-0 group-hover:w-full rounded"></span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
