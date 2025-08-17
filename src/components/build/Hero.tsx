@@ -72,7 +72,7 @@ const Hero = () => {
 
       <div className="flex flex-col mx-4 md:mx-10 mb-10 mt-20 sm:mt-32">
         <div className="text-white mb-6 md:mb-8 text-center md:text-left">
-          <p className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight">
+          <p className="text-4xl sm:text-4xl md:text-6xl font-bold leading-tight">
             Rent a Car for Every Journey
           </p>
         </div>
