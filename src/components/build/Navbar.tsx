@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: "Flight", path: "/flight" },
     { name: "Train", path: "/train" },
     { name: "Travel", path: "/travel" },
-    { name: "Car Rental", path: "/car-rental" },
+    { name: "Car Rental", path: "/car" },
   ];
 
   return (
