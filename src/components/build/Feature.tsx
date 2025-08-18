@@ -33,7 +33,7 @@ const Feature = () => {
               <p className="text-gray-200 text-xs sm:text-sm">
                 Book your perfect stay with us
               </p>
-              <Button className="w-max text-xs sm:text-sm bg-white text-black">
+              <Button className="w-max text-xs sm:text-sm bg-white text-black hover:bg-white cursor-pointer">
                 Book Now <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
               </Button>
             </div>

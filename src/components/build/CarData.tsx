@@ -73,7 +73,7 @@ const CarData = () => {
     </p>
   </div>
 
-  <button className="flex items-center gap-1 text-sm sm:text-base font-semibold text-blue-600 hover:underline self-start sm:self-auto">
+  <button className="flex items-center gap-1 text-sm sm:text-base font-semibold text-black cursor-pointer hover:underline self-start sm:self-auto">
     View All <FontAwesomeIcon icon={faArrowRight} />
   </button>
 </div>

@@ -1,3 +1,6 @@
+import { faGift } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const deals = [
   {
     id: 1,
@@ -7,7 +10,6 @@ const deals = [
     terms: "*with Terms and Conditions",
     image:
       "https://www.godigit.com/content/dam/godigit/directportal/en/family-car.jpg",
-    badgeColor: "bg-red-400",
   },
   {
     id: 2,
@@ -17,34 +19,23 @@ const deals = [
     terms: "*T&C apply",
     image:
       "https://www.etags.com/blog/wp-content/uploads/2020/09/AdobeStock_294950461.jpeg",
-    badgeColor: "bg-yellow-400",
-  },
-  {
-    id: 3,
-    title: "Exclusive Luxury Car Rental Deals",
-    discount: "50%",
-    validity: "Valid this Weekend",
-    terms: "*Only premium cars included",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsWDJfjvY3zIr70NDsJ1yAjb76sHi6eWRLDQ&s",
-    badgeColor: "bg-pink-400",
   },
 ];
 
 const BestDeal = () => {
   return (
-    <div className="px-4 py-8 md:px-10 lg:px-20">
+    <div className="px-4 py-8 md:px-10 ">
       {/* Heading */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6">
         Enjoy extra miles with our best deals
       </h1>
 
-      {/* Deals Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Deals Flex Container */}
+      <div className="flex flex-col sm:flex-row gap-6">
         {deals.map((deal) => (
           <div
             key={deal.id}
-            className="relative flex flex-col justify-between rounded-xl shadow-lg text-white w-full h-80 sm:h-96 lg:h-[420px] overflow-hidden"
+            className="relative flex flex-col justify-between flex-1 rounded-xl shadow-lg text-white sm:h-96  overflow-hidden"
           >
             {/* Background Image */}
             <img
@@ -61,8 +52,10 @@ const BestDeal = () => {
               {/* Top row */}
               <div className="flex justify-between items-center">
                 <div
-                  className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full ${deal.badgeColor}`}
-                ></div>
+                  className={`w-5 h-5 sm:w-8 sm:h-8 bg-black/80 rounded-sm flex items-center justify-center`}
+                >
+                  <FontAwesomeIcon icon={faGift} />
+                </div>
                 <div className="text-xs sm:text-sm font-medium bg-black/60 px-2 py-1 rounded-lg backdrop-blur-md">
                   {deal.validity}
                 </div>

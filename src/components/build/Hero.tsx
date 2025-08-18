@@ -19,8 +19,10 @@ import CarData from "./CarData";
 import BestDeal from "./BestDeal";
 import Feature from "./Feature";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [locations, setLocations] = useState<any[]>([]);
   const [selectedDeparture, setSelectedDeparture] = useState<string | null>(null);
   const [selectedReturn, setSelectedReturn] = useState<string | null>(null);
@@ -42,6 +44,10 @@ const Hero = () => {
     };
     fetchLocations();
   }, []);
+
+  const handleResult = () => {
+    navigate("/result");
+  }
 
   const openDrawer = (type: "departure" | "return") => {
     setDrawerType(type);
@@ -83,94 +89,101 @@ const Hero = () => {
           </div>
 
           {/* Search Box at bottom like old design */}
-          <div className="flex flex-col justify-end h-auto bg-white rounded-lg p-4 md:p-6 shadow-md">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {/* Departure Dropdown */}
-              <div>
-                <h1 className="text-sm font-semibold mb-1">Departure</h1>
-                <Select onValueChange={() => openDrawer("departure")}>
-                  <SelectTrigger className="w-full bg-gray-100 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500">
-                    <SelectValue placeholder={selectedDeparture || "Select departure city"} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {distinctCities.map((city) => (
-                      <SelectItem key={city} value={city}>
-                        {city}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+          <div className="flex flex-col justify-end h-auto backdrop-blur-lg bg-white/40 rounded-lg p-4 md:p-6 shadow-md">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    {/* Departure Dropdown */}
+    <div>
+      <h1 className="text-sm text-white font-semibold mb-1">Departure</h1>
+      <Select onValueChange={() => openDrawer("departure")}>
+        <SelectTrigger className="w-full bg-white/30 backdrop-blur-md rounded-md border border-white/20 shadow-sm focus:ring-2 focus:ring-blue-500">
+          <SelectValue placeholder={selectedDeparture || "Select departure city"} />
+        </SelectTrigger>
+        <SelectContent>
+          {distinctCities.map((city) => (
+            <SelectItem key={city} value={city}>
+              {city}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
 
-              {/* Return Dropdown */}
-              <div>
-                <h1 className="text-sm font-semibold mb-1">Return Location</h1>
-                <Select onValueChange={() => openDrawer("return")}>
-                  <SelectTrigger className="w-full bg-gray-100 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500">
-                    <SelectValue placeholder={selectedReturn || "Select return city"} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {distinctCities.filter((city) => city !== selectedDeparture).map((city) => (
-                      <SelectItem key={city} value={city}>
-                        {city}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+    {/* Return Dropdown */}
+    <div>
+      <h1 className="text-sm text-white font-semibold mb-1">Return Location</h1>
+      <Select onValueChange={() => openDrawer("return")}>
+        <SelectTrigger className="w-full bg-white/30 backdrop-blur-md rounded-md border border-white/20 shadow-sm focus:ring-2 focus:ring-blue-500">
+          <SelectValue placeholder={selectedReturn || "Select return city"} />
+        </SelectTrigger>
+        <SelectContent>
+          {distinctCities
+            .filter((city) => city !== selectedDeparture)
+            .map((city) => (
+              <SelectItem key={city} value={city}>
+                {city}
+              </SelectItem>
+            ))}
+        </SelectContent>
+      </Select>
+    </div>
 
-              {/* Pickup Date & Time */}
-              <div>
-                <h1 className="text-sm font-semibold mb-1">Pickup Date & Time</h1>
-                <input
-                  type="datetime-local"
-                  className="w-full bg-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+    {/* Pickup Date & Time */}
+    <div>
+      <h1 className="text-sm text-white font-semibold mb-1">Pickup Date & Time</h1>
+      <input
+        type="datetime-local"
+        className="w-full p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 
+                   bg-white/30 backdrop-blur-md border border-white/20 shadow-sm text-gray-800 placeholder-gray-500"
+      />
+    </div>
 
-              {/* Return Date & Time */}
-              <div>
-                <h1 className="text-sm font-semibold mb-1">Return Date & Time</h1>
-                <input
-                  type="datetime-local"
-                  className="w-full bg-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
+    {/* Return Date & Time */}
+    <div>
+      <h1 className="text-sm text-white font-semibold mb-1">Return Date & Time</h1>
+      <input
+        type="datetime-local"
+        className="w-full p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 
+                   bg-white/30 backdrop-blur-md border border-white/20 shadow-sm text-gray-800 placeholder-gray-500"
+      />
+    </div>
+  </div>
 
-            {/* Search Filter & Button */}
-            <div className="mt-4 flex flex-col md:flex-row md:justify-between gap-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="font-medium">Search Filter:</p>
+  {/* Search Filter & Button */}
+  <div className="mt-4 flex flex-col md:flex-row md:justify-between gap-3">
+    <div className="flex flex-wrap items-center gap-2">
+      <p className="font-medium text-white">Filter:</p>
 
-                <p
-                  onClick={() => setSelected("without")}
-                  className={`rounded-full px-3 py-1 text-sm cursor-pointer transition ${selected === "without"
-                    ? "bg-black text-white"
-                    : "bg-transparent border border-gray-300 text-black"
-                    }`}
-                >
-                  Without Driver
-                </p>
+      <p
+        onClick={() => setSelected("without")}
+        className={`rounded-full px-3 py-1 text-sm cursor-pointer transition ${
+          selected === "without"
+            ? "bg-white text-black"
+            : "bg-white/30 backdrop-blur-md border border-white/20 text-black"
+        }`}
+      >
+        Without Driver
+      </p>
 
-                <p
-                  onClick={() => setSelected("with")}
-                  className={`rounded-full px-3 py-1 text-sm cursor-pointer transition ${selected === "with"
-                    ? "bg-black text-white"
-                    : "bg-transparent border border-gray-300 text-black"
-                    }`}
-                >
-                  With Driver
-                </p>
-              </div>
+      <p
+        onClick={() => setSelected("with")}
+        className={`rounded-full px-3 py-1 text-sm cursor-pointer transition ${
+          selected === "with"
+            ? "bg-white text-black"
+            : "bg-white/30 backdrop-blur-md border border-white/20 text-black"
+        }`}
+      >
+        With Driver
+      </p>
+    </div>
 
-              <div>
-                <button className="bg-black hover:bg-gray-800 cursor-pointer transition text-white px-5 py-2 rounded-lg w-full md:w-auto">
-                  Search
-                </button>
-              </div>
-            </div>
-          </div>
+    <div>
+      <button onClick={handleResult} className="bg-white hover:bg-white/80 cursor-pointer transition text-black px-5 py-2 rounded-lg w-full md:w-auto shadow-md">
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+
         </div>
 
         {/* Drawer */}
